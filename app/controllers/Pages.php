@@ -38,9 +38,11 @@
         $Rent ="Rent";
 
         $rent_pro = $this->listingModel->getRentProperty($Rent);
+        $pro_pictures = $this->listingModel->GetProertyPics();
 
               $data = [
-            'rent_pro' => $rent_pro
+            'rent_pro' => $rent_pro,
+            'pro_pictures' => $pro_pictures
               ];
      
       $this->view('pages/rent', $data);

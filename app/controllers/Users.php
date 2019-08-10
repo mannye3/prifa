@@ -19,6 +19,7 @@
           'password' => trim($_POST['password']),
           'phone' => trim($_POST['phone']),
           'type' => trim($_POST['type']),
+          'reg_date' => date('jS \ F Y h:i:s A'),
           'name_err' => '',
           'email_err' => '',
           'password_err' => '',

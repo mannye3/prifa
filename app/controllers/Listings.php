@@ -11,22 +11,25 @@
 
   public function index($ref_id){
 
-         $view = +1;
-
-       $view_pro = $this->listingModel->updateViewPro($ref_id,$view);
-      $post = $this->listingModel->getPropertyByRef($ref_id);
-      $pro_pics = $this->listingModel->getPropertyPictures($ref_id);
-      $feat_pro = $this->listingModel->getFeaturedProperty();
-      
-      
-
+         
       $data = [
-        'post' => $post,
-         'pro_pics' => $pro_pics,
-         'feat_pro' => $feat_pro
+        'post' => '',
+         'pro_pics' => '',
+         'feat_pro' => ''
          // 'view_pro' => $view_pro
         
       ];
+
+      
+      $data['post'] = $this->listingModel->getPropertyByRef($ref_id);
+      $view = intval($data['post']->view) + 1;
+      $view_pro = $this->listingModel->updateViewPro($ref_id,$view);
+
+      $data['pro_pics'] = $this->listingModel->getPropertyPictures($ref_id);
+      $data['feat_pro'] = $this->listingModel->getFeaturedProperty();
+      
+      
+
 
       $this->view('listings/index', $data);
     }

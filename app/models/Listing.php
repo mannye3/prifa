@@ -229,15 +229,17 @@
 
 
 
-   // public function GetProertyPics($ref_id){
-   //    $this->db->query('SELECT SUM(num) AS t_img FROM pro_img WHERE ref_id = :ref_id');
-   //    $this->db->bind(':ref_id', $ref_id);
+   public function GetProertyPics(){
+      $this->db->query('SELECT ref_id, COUNT(ref_id) AS TotalCountImg FROM pro_img GROUP BY ref_id');
+      //$this->db->bind(':ref_id', $ref_id);
 
-   //    $results = $this->db->resultSet();
+      
 
-   //    return $results;
-   //  }
-   
+    $results = $this->db->resultSet();
+
+    return $results;
 
  
   }
+
+}

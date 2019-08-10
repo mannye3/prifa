@@ -48,6 +48,9 @@
 
 				<!-- Listing Item -->
 				 <?php foreach($data['rent_pro'] as $rent_pro) : ?>
+				 	<?php foreach($data['pro_pictures'] as $pro_pictures) : ?>
+
+				 		<?php if($rent_pro->ref_id == $pro_pictures->ref_id) : ?>
 
 				<div class="listing-item">
 
@@ -66,7 +69,7 @@
 
 						<div class="listing-img-content">
 							<span class="listing-price">₦<?php  echo number_format($rent_pro->price).""; ?></span>
-							<!-- <span  style="float: right;"><?php echo $t_img ?> <i class="fa fa-image"></i></span> -->
+							<span  style="float: right;"><?php echo $pro_pictures->TotalCountImg; ?> <i class="fa fa-image"></i></span>
 						</div>
 
 						<img src="<?php echo URLROOT; ?>/pro_pics/<?php echo $rent_pro->pic; ?>" alt="">
@@ -102,6 +105,8 @@
 					<!-- Listing Item / End -->
 
 				</div>
+						<?php endif; ?>
+					<?php endforeach; ?>
 				<?php endforeach; ?>
 				<!-- Listing Item / End -->
 
